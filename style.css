@@ -1,0 +1,867 @@
+body {
+  font-family: 'Space Grotesk', 'Inter', Arial, sans-serif;
+  background: #181823;
+  color: #f8f9fa;
+  transition: background 0.4s, color 0.4s;
+}
+
+.wow-dark {
+  background: #181823;
+  color: #f8f9fa;
+}
+.wow-light {
+  background: #f8f9fa;
+  color: #181823;
+}
+
+/* Navbar glassmorphism */
+.wow-navbar {
+  background: rgba(34,34,59,0.7) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 16px rgba(34,34,59,0.10);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Hero */
+.wow-hero {
+  min-height: 100vh;
+  position: relative;
+  background: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wow-hero-bg {
+  background: radial-gradient(circle at 60% 40%, #4f8cff 0%, #181823 100%);
+  opacity: 0.25;
+  z-index: 1;
+}
+.wow-avatar {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+.logo-circle {
+  border: 6px solid #fff;
+  border-radius: 100%;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(79,140,255,0.15);
+}
+.wow-avatar-halo {
+  position: relative;
+  display: inline-block;
+}
+.wow-avatar-halo::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, #4f8cff 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.18;
+  z-index: 0;
+  animation: haloPulse 2.5s infinite alternate;
+}
+@keyframes haloPulse {
+  0% { opacity: 0.18; }
+  100% { opacity: 0.32; }
+}
+
+.wow-title {
+  color: #fff;
+  text-shadow: 0 2px 16px #4f8cff44;
+  letter-spacing: 1px;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #4f8cff 0%, #ff6b6b 100%);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+}
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #ff6b6b 0%, #4f8cff 100%);
+  box-shadow: 0 4px 16px rgba(255,107,107,0.18);
+}
+.btn-outline-gradient {
+  background: none;
+  border: 2px solid #4f8cff;
+  color: #4f8cff;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline-gradient:hover {
+  background: #4f8cff;
+  color: #fff;
+}
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple:after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background: rgba(255,255,255,0.2);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.ripple:active:after {
+  opacity: 1;
+  transition: 0s;
+}
+
+/* Section titles */
+.section-title {
+  font-weight: 700;
+  font-size: 2.1rem;
+  color: #4f8cff;
+  letter-spacing: 1px;
+}
+
+/* Timeline premium */
+.timeline-premium {
+  border-left: 3px solid #4f8cff44;
+  margin-left: 2rem;
+  padding-left: 2rem;
+  position: relative;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 1.5rem;
+  background: rgba(34,34,59,0.7);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(79,140,255,0.07);
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.timeline-item:hover {
+  box-shadow: 0 8px 32px rgba(79,140,255,0.13);
+  transform: translateY(-4px) scale(1.03);
+}
+.timeline-dot {
+  position: absolute;
+  left: -2.1rem;
+  top: 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: linear-gradient(90deg, #4f8cff 0%, #ff6b6b 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #4f8cff22;
+  border: 2px solid #fff;
+  z-index: 2;
+  animation: haloPulse 2.5s infinite alternate;
+}
+.timeline-content h4 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+/* Correction visibilité des dates dans la timeline premium */
+.timeline-content .text-muted {
+  color: #ffd86b !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.wow-light .timeline-content .text-muted {
+  color: #4f8cff !important;
+}
+
+/* Stack technique */
+.wow-stack-grid .stack-logo {
+  background: rgba(34,34,59,0.7);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(79,140,255,0.07);
+  border: 1px solid rgba(255,255,255,0.10);
+  padding: 1.2rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.wow-stack-grid .stack-logo:hover {
+  box-shadow: 0 8px 32px #4f8cff44;
+  transform: scale(1.08) rotate(-2deg);
+  background: rgba(79,140,255,0.13);
+  border-radius: inherit;
+}
+.wow-stack-grid img {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 2px 8px #4f8cff44);
+  transition: filter 0.2s;
+}
+.wow-stack-grid .stack-logo:hover img {
+  filter: drop-shadow(0 4px 16px #ff6b6b88);
+}
+
+/* Projets masonry premium */
+.wow-project-card {
+  cursor: pointer;
+}
+
+.wow-project-card.project-card-glass {
+  background: rgba(34,34,59,0.92);
+  border-radius: 2.2rem;
+  box-shadow: 0 4px 32px #4f8cff22, 0 1.5px 8px #0002;
+  padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.wow-project-card.project-card-glass .wow-project-img-wrap {
+  background: #fff;
+  border-radius: 1.3rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 16px #4f8cff22;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wow-project-card.project-card-glass .project-img-glass {
+  border-radius: 1.1rem;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #fff;
+}
+.wow-project-card.project-card-glass .card-body {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+.wow-project-card.project-card-glass .card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.7rem;
+}
+.wow-project-card.project-card-glass .card-text {
+  color: #d1d5e7;
+  font-size: 1.08rem;
+  margin-bottom: 1.2rem;
+}
+.wow-project-card.project-card-glass .mb-2 {
+  margin-top: auto;
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.wow-project-card.project-card-glass .badge.wow-skill {
+  background: none;
+  color: #4f8cff;
+  font-weight: 700;
+  font-size: 1.08rem;
+  border-radius: 1.2rem;
+  padding: 0.3em 1em;
+  box-shadow: none;
+  background: none;
+  border: none;
+  letter-spacing: 0.5px;
+  margin: 0;
+  display: inline-block;
+  opacity: 0.95;
+}
+.wow-project-card.project-card-glass .badge.wow-skill::before {
+  content: '#';
+  color: #4f8cff;
+  margin-right: 2px;
+  font-weight: 700;
+}
+.wow-project-card.project-card-glass .badge.wow-skill:nth-child(2) {
+  color: #1ec48b;
+}
+.wow-project-card.project-card-glass .badge.wow-skill:nth-child(3) {
+  color: #ff6b6b;
+}
+
+
+/* Badges skills */
+.wow-skill {
+  background: linear-gradient(90deg, #4f8cff 0%, #ff6b6b 100%);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  border-radius: 1.2rem;
+  padding: 0.4em 1.1em;
+  box-shadow: 0 2px 8px #4f8cff22;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.wow-skill:hover {
+  box-shadow: 0 4px 16px #ff6b6b44;
+  background: linear-gradient(90deg, #ff6b6b 0%, #4f8cff 100%);
+}
+
+/* Soft Skills flip 3D */
+.flip-3d {
+  perspective: 1000px;
+  cursor: pointer;
+  min-height: 180px;
+  position: relative;
+}
+.soft-card {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  position: relative;
+  min-height: 180px;
+}
+.flip-3d:hover .soft-card {
+  transform: rotateY(180deg);
+}
+.soft-front, .soft-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.2rem;
+}
+.soft-front {
+  background: rgba(34,34,59,0.7);
+  color: #fff;
+  z-index: 2;
+}
+.soft-back {
+  background: rgba(79,140,255,0.13);
+  color: #fff;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Témoignages slider 3D */
+.testimonial-card {
+  background: rgba(34,34,59,0.7);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px #4f8cff22;
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(8px);
+  color: #fff;
+}
+
+/* Contact glass */
+.wow-contact-form {
+  background: rgba(34,34,59,0.7);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px #4f8cff22;
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(8px);
+}
+.input-group-text {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+}
+
+/* Footer signature SVG */
+.footer-section {
+  background: #212529;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.wow-signature svg {
+  vertical-align: middle;
+}
+
+/* Animations d'apparition */
+.wow-section-fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+}
+.wow-section-fade.wow-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .wow-hero {
+    min-height: 70vh;
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+  .section-title {
+    font-size: 1.4rem;
+  }
+  .wow-avatar-halo::before {
+    width: 120px;
+    height: 120px;
+  }
+  .timeline-premium {
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+  }
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+.about-list li {
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-img {
+  max-width: 100%;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 16px rgba(34,34,59,0.10);
+}
+
+.work-card {
+  background: rgba(255,255,255,0.7);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(255,107,107,0.07);
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+}
+.work-card:hover {
+  box-shadow: 0 8px 32px rgba(255,107,107,0.13);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.project-card-glass:hover .project-img-glass {
+  filter: grayscale(0) brightness(1.05) saturate(1.2);
+}
+
+.badge.bg-danger {
+  background: linear-gradient(90deg, #ff6b6b 0%, #4f8cff 100%);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+}
+
+.contact-form {
+  background: rgba(255,255,255,0.7);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(255,107,107,0.07);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+}
+.contact-shape {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, #4f8cff 0%, transparent 70%);
+  bottom: -60px;
+  left: -60px;
+  z-index: 0;
+  opacity: 0.18;
+  border-radius: 50%;
+}
+
+.btn-danger {
+  background: linear-gradient(90deg, #ff6b6b 0%, #4f8cff 100%);
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(255,107,107,0.10);
+}
+.btn-danger:hover {
+  background: linear-gradient(90deg, #4f8cff 0%, #ff6b6b 100%);
+  box-shadow: 0 4px 16px rgba(255,107,107,0.18);
+}
+
+.footer-section {
+  background: #181823;
+  color: #fff;
+  letter-spacing: 1px;
+}
+footer .bi {
+  transition: color 0.2s, transform 0.2s;
+}
+footer .bi:hover {
+  color: #ff6b6b !important;
+  transform: scale(1.2) rotate(-6deg);
+}
+
+.wow-timeline {
+  border-left: 3px solid #4f8cff;
+  margin-left: 1.2rem;
+  padding-left: 1.2rem;
+}
+.wow-timeline-item {
+  position: relative;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s cubic-bezier(.4,2,.6,1);
+}
+.wow-timeline-item.wow-visible {
+  opacity: 1;
+  transform: none;
+}
+.wow-timeline-dot {
+  position: absolute;
+  left: -1.5rem;
+  top: 0.2rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: linear-gradient(90deg, #ff6b6b 0%, #4f8cff 100%);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px #4f8cff44;
+}
+.wow-timeline-content {
+  font-size: 1.05rem;
+  color: #b0b8d1;
+}
+.wow-bars {
+  margin-top: 1.5rem;
+}
+.wow-bar {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s cubic-bezier(.4,2,.6,1);
+}
+.wow-bar.wow-visible {
+  opacity: 1;
+  transform: none;
+}
+.wow-bar span {
+  min-width: 90px;
+  display: inline-block;
+}
+.wow-bar-inner {
+  display: inline-block;
+  height: 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #4f8cff 0%, #ff6b6b 100%);
+  margin-left: 1rem;
+  width: 0;
+  max-width: 220px;
+  transition: width 1.2s cubic-bezier(.4,2,.6,1);
+}
+.wow-bar-inner.animated {
+  width: inherit !important;
+}
+.wow-project-hover {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #181823cc 0%, #4f8cffcc 100%);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+.wow-project-card:hover .wow-project-hover {
+  opacity: 1;
+}
+.wow-signature svg {
+  vertical-align: middle;
+}
+
+.glass-blur {
+  background: rgba(24,24,35,0.7) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 16px rgba(24,24,35,0.10);
+}
+.tilt-3d {
+  will-change: transform;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.tilt-3d:hover {
+  box-shadow: 0 16px 48px rgba(79,140,255,0.18), 0 2px 16px rgba(255,107,107,0.10);
+  z-index: 2;
+}
+.wow-project-card {
+  perspective: 1200px;
+}
+.wow-project-hover {
+  pointer-events: none;
+}
+.wow-project-card:hover .wow-project-hover {
+  pointer-events: auto;
+}
+/* GSAP reveal (fade/slide/zoom) */
+.wow-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.wow-timeline-item, .wow-bar, .wow-project-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: all 0.7s cubic-bezier(.4,2,.6,1);
+}
+.wow-timeline-item.wow-visible, .wow-bar.wow-visible, .wow-project-card.wow-visible {
+  opacity: 1;
+  transform: none;
+}
+/* Responsive & détails */
+@media (max-width: 991px) {
+  .wow-hero .display-2 { font-size: 2.2rem; }
+  .wow-title { font-size: 1.5rem; }
+}
+
+/* Ripple effect */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.3);
+  transform: translate(-50%, -50%) scale(0);
+  left: 50%;
+  top: 50%;
+  pointer-events: none;
+  animation: ripple-anim 0.6s linear;
+  z-index: 10;
+}
+@keyframes ripple-anim {
+  to {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Focus visible pour l'accessibilité */
+:focus-visible {
+  outline: 2px solid #ff6b6b;
+  outline-offset: 2px;
+}
+
+/* Responsive amélioré */
+@media (max-width: 767px) {
+  .wow-hero {
+    min-height: 60vh;
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
+  .wow-stack-grid .stack-logo {
+    padding: 0.7rem;
+  }
+  .project-card-glass {
+    min-height: 260px;
+  }
+  .timeline-premium {
+    margin-left: 0;
+    padding-left: 0.5rem;
+  }
+}
+
+/* Light mode corrections */
+.wow-light .footer-section,
+.wow-light footer.footer-section {
+  background: #f8f9fa !important;
+  color: #181823 !important;
+}
+.wow-light .glass-blur,
+.wow-light .wow-contact-form,
+.wow-light .timeline-item,
+.wow-light .project-card-glass,
+.wow-light .testimonial-card,
+.wow-light .soft-front,
+.wow-light .soft-back {
+  background: rgba(255,255,255,0.85) !important;
+  color: #181823 !important;
+  box-shadow: 0 2px 16px rgba(34,34,59,0.08);
+}
+.wow-light .btn-gradient {
+  background: linear-gradient(90deg, #4f8cff 0%, #ff6b6b 100%);
+  color: #fff;
+}
+.wow-light .btn-outline-gradient {
+  border-color: #4f8cff;
+  color: #4f8cff;
+}
+
+/* Nouveau style section À propos premium */
+.about-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: #fff;
+  display: inline-block;
+}
+.about-dot {
+  color: #4f8cff;
+  font-size: 1.2em;
+  font-weight: 900;
+  margin-left: 2px;
+}
+.about-desc {
+  max-width: 820px;
+  color: #b0b8d1;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  text-align: center;
+}
+.about-card {
+  background: rgba(34,34,59,0.85);
+  border-radius: 2.2rem;
+  box-shadow: 0 2px 24px #4f8cff22, 0 1.5px 8px #0002;
+  border: 2.5px solid transparent;
+  transition: border 0.3s, box-shadow 0.3s, transform 0.3s;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.about-card-title {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 0.7rem;
+  margin-bottom: 0;
+  letter-spacing: 0.5px;
+}
+.about-icon {
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 2px 16px #4f8cff55);
+  margin-bottom: 0.5rem;
+}
+.glass-neon {
+  border: 2.5px solid #4f8cff44;
+}
+.about-card:hover, .about-card:focus-visible {
+  border: 2.5px solid #4f8cff;
+  box-shadow: 0 8px 48px #4f8cff55, 0 2px 16px #0003;
+  transform: translateY(-8px) scale(1.04);
+  z-index: 2;
+}
+@media (max-width: 991px) {
+  .about-title { font-size: 2.2rem; }
+  .about-desc { font-size: 1.05rem; }
+  .about-card { min-height: 200px; }
+  .about-icon { width: 48px; height: 48px; }
+}
+@media (max-width: 767px) {
+  .about-title { font-size: 1.5rem; }
+  .about-desc { font-size: 0.98rem; }
+  .about-card { min-height: 160px; padding: 1.2rem; }
+  .about-icon { width: 36px; height: 36px; }
+}
+
+/* Formulaire de contact premium */
+.premium-contact-form {
+  background: rgba(34,34,59,0.92) !important;
+  border-radius: 2rem;
+  box-shadow: 0 4px 32px #4f8cff22, 0 1.5px 8px #0002;
+  border: 1.5px solid #4f8cff22;
+}
+.premium-input-icon {
+  background: transparent !important;
+  border: none !important;
+  color: #4f8cff !important;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  box-shadow: none !important;
+}
+.premium-input {
+  background: rgba(255,255,255,0.08) !important;
+  border: 2px solid #4f8cff22;
+  color: #fff !important;
+  border-radius: 1.2rem !important;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 12px #4f8cff11;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.premium-input:focus {
+  border: 2px solid #4f8cff;
+  box-shadow: 0 0 0 2px #4f8cff44;
+  background: rgba(255,255,255,0.16) !important;
+  color: #fff !important;
+}
+.input-group .form-control.premium-input {
+  border-left: none !important;
+}
+.input-group .premium-input-icon {
+  border-top-left-radius: 1.2rem !important;
+  border-bottom-left-radius: 1.2rem !important;
+  padding-left: 1.1rem;
+  background: none !important;
+}
+.input-group > .form-control, .input-group > .form-select {
+  border-top-right-radius: 1.2rem !important;
+  border-bottom-right-radius: 1.2rem !important;
+}
+.premium-contact-form .form-floating > label {
+  color: #b0b8d1;
+  font-size: 1.05rem;
+  left: 0.9rem;
+  top: 0.9rem;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+.premium-input:focus ~ label, .premium-input:not(:placeholder-shown) ~ label {
+  color: #4f8cff !important;
+}
+.premium-btn {
+  border-radius: 1.2rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 16px #4f8cff22;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.premium-btn:hover, .premium-btn:focus-visible {
+  box-shadow: 0 8px 32px #4f8cff55;
+  background: linear-gradient(90deg, #ff6b6b 0%, #4f8cff 100%);
+}
+.premium-success {
+  border-radius: 1.2rem;
+  background: linear-gradient(90deg, #4f8cff22 0%, #ff6b6b22 100%);
+  color: #1ec48b;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  box-shadow: 0 2px 12px #4f8cff22;
+}
+@media (max-width: 767px) {
+  .premium-contact-form { padding: 1.2rem !important; }
+  .premium-btn { font-size: 1rem; padding: 0.8rem 1rem; }
+}
+
+.input-icon {
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4f8cff;
+  font-size: 1.25rem;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.with-icon {
+  padding-left: 2.5rem !important;
+} 
